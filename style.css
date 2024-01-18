@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* Custom Properties */
+:root{
+    /* Colors Primary */
+    --clr-primary-100:hsl(0, 0%, 100%);
+    --clr-primary-200:hsl(215, 51%, 70%);
+    --clr-primary-300:hsl(178, 100%, 50%);
+
+    /* Colors Neutral */
+    --clr-line: hsl(215, 32%, 27%);
+    --clr-card-bg: hsl(216, 50%, 16%);
+    --clr-main-bg: hsl(217, 54%, 11%);
+
+    /* Typography */
+    --ff-primary: 'Outfit', sans-serif;
+    --fs-body: 1.125rem;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-bold: 600;
+}
+
+/* CSS Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+a{
+    text-decoration: none;
+    color: var(--clr-primary-100);
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* CSS Reset Ends */
+
+/* General Styling */
+
+body{
+    background-color: var(--clr-main-bg);
+    font-family: var(--ff-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.card{
+    color: var(--clr-primary-100);
+    max-width: 22rem;
+    min-height: auto;
+    background-color: var(--clr-card-bg);
+    padding :1.5rem;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: .8rem;
+}
+.card__picture{
+    border-radius: 10px;
+}
+.card__text p{
+    color: var(--clr-primary-200);
+}
+.section-title{
+    font-size: 1.5rem;
+    margin-bottom: .8rem;
+}
+.card__balance{
+    color: var(--clr-primary-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .7rem;
+}
+.card__balance span{
+    display: inline;
+    margin-right: auto;
+    color: var(--clr-primary-300);
+}
+.line{
+    border-bottom: 1px solid var(--clr-line);
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+.profile img{
+    max-width: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.profile span{
+    color: var(--clr-primary-200);
+}
+
+a:hover,
+a:focus{
+    color: var(--clr-primary-300);
+}
+.blue-overlay{
+    max-width: 100%;
+    min-height: 100%;
+    
+}
+.picture-container{
+    position: relative;
+    max-width: 100%;
+}
+
+.picture-container::after{
+    content:'';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,255,247,0.6);
+    border-radius: 10px;
+    opacity:0;
+    transition: all 0.5s;
+    background-image: url(images/icon-view.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.picture-container:after {
+    opacity:0;
+}
+.picture-container:hover:after {
+    opacity:1;
+}
